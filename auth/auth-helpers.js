@@ -19,7 +19,7 @@ function findById(id) {
 
 function register(newUser) {
   return db("planners")
-    .insert(newUser)
+    .insert(newUser, "id")
     .then(([id]) => {
       return findById(id);
     });
