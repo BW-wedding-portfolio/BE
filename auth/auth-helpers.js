@@ -8,17 +8,17 @@ module.exports = {
 };
 
 function find() {
-  return db("users");
+  return db("planners");
 }
 
 function findById(id) {
-  return db("users")
+  return db("planners")
     .where({ id })
     .first();
 }
 
 function register(newUser) {
-  return db("users")
+  return db("planners")
     .insert(newUser)
     .then(([id]) => {
       return findById(id);
@@ -26,7 +26,7 @@ function register(newUser) {
 }
 
 function login(filter) {
-  return db("users")
+  return db("planners")
     .where(filter)
     .first();
 }
