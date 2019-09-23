@@ -1,13 +1,5 @@
 exports.up = function(knex) {
   return knex.schema
-    .createTable("users", user => {
-      user.increments();
-      user
-        .string("username", 100)
-        .notNullable()
-        .unique();
-      user.String("password", 255).notNullable();
-    })
     .createTable("planners", planner => {
       planner.increments();
       planner.string("first_name", 100).notNullable();
@@ -16,6 +8,7 @@ exports.up = function(knex) {
         .string("username", 100)
         .notNullable()
         .unique();
+      planner.string("password", 255).notNullable();
     })
     .createTable("portfolio", portfolio => {
       portfolio.increments();
@@ -47,6 +40,5 @@ exports.down = function(knex) {
   return knex.schema
     .dropTableIfExists("events")
     .dropTableIfExists("portfolio")
-    .dropTableIfExists("planners")
-    .dropTableIfExists("users");
+    .dropTableIfExists("planners");
 };
