@@ -28,7 +28,13 @@ function register(newUser) {
   return db("planners")
     .insert(newUser, "id")
     .then(([id]) => {
-      return findById(id);
+      return findById(id).select(
+        "planners.first_name",
+        "planners.last_name",
+        "planners.email",
+        "planners.username",
+        "planners.location"
+      );
     });
 }
 
