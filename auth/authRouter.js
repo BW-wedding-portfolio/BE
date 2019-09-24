@@ -37,7 +37,6 @@ router.post("/register", (req, res) => {
     location
   })
     .then(newUser => {
-      console.log(newUser);
       res.status(201).json(newUser);
     })
     .catch(error => {
