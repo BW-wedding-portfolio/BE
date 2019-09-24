@@ -17,12 +17,27 @@ router.get("/", restricted, (req, res) => {
 });
 
 router.post("/register", (req, res) => {
-  const { first_name, last_name, username, password } = req.body;
+  const {
+    first_name,
+    last_name,
+    email,
+    username,
+    password,
+    location
+  } = req.body;
 
   const hash = bcrypt.hashSync(password, 8);
 
-  User.register({ first_name, last_name, username, password: hash })
+  User.register({
+    first_name,
+    last_name,
+    email,
+    username,
+    password: hash,
+    location
+  })
     .then(newUser => {
+      console.log(newUser);
       res.status(201).json(newUser);
     })
     .catch(error => {
