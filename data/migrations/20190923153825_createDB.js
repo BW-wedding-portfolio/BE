@@ -5,14 +5,15 @@ exports.up = function(knex) {
       planner.string("first_name", 100).notNullable();
       planner.string("last_name", 100).notNullable();
       planner
-        .string("username", 100)
-        .notNullable()
-        .unique();
-      planner
         .string("email", 255)
         .notNullable()
         .unique();
+      planner
+        .string("username", 100)
+        .notNullable()
+        .unique();
       planner.string("password", 255).notNullable();
+      planner.string("location", 255).notNullable();
     })
     .createTable("events", event => {
       event.increments();
