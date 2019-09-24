@@ -27,7 +27,9 @@ router.post("/:id/events", (req, res) => {
     .then(newEvent => {
       res.status(200).json(newEvent);
     })
-    .catch({ error: "Sever could not create event" });
+    .catch(error => {
+      res.status(500).json({ error: "Server could not post event" });
+    });
 });
 
 router.put("/:id/events/:eid", (req, res) => {
