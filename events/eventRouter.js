@@ -23,7 +23,7 @@ router.post("/:id/events", (req, res) => {
   planner_id = id;
   newEvent.planner_id = planner_id;
 
-  Events.create(newEvent)
+  Events.create(newEvent)retergreg
     .then(newEvent => {
       res.status(200).json(newEvent);
     })
