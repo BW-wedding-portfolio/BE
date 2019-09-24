@@ -4,25 +4,15 @@ const User = require("./auth-helpers");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const secret = require("../config/secret");
+const restricted = require("../middleware/restricted");
 
-router.get("/", (req, res) => {
+router.get("/", restricted, (req, res) => {
   User.find()
     .then(users => {
       res.status(200).json(users);
     })
     .catch(error => {
       res.status(500).json({ error: "Server could not get users" });
-    });
-});
-
-router.get("/:id", (req, res) => {
-  const { id } = req.params;
-  User.findById(id)
-    .then(user => {
-      res.status(200).json(user);
-    })
-    .catch(error => {
-      res.status(500).json({ error: "Sever could not get user" });
     });
 });
 
@@ -60,7 +50,8 @@ router.post("/login", (req, res) => {
 
 function generateToken(user) {
   const payload = {
-    username: user.username
+    username: user.username,
+    id: user.id
   };
 
   const options = {

@@ -8,37 +8,28 @@ exports.up = function(knex) {
         .string("username", 100)
         .notNullable()
         .unique();
+      planner
+        .string("email", 255)
+        .notNullable()
+        .unique();
       planner.string("password", 255).notNullable();
     })
-    .createTable("portfolio", portfolio => {
-      portfolio.increments();
-      portfolio.string("portfolio_name", 255).notNullable();
-      portfolio
+    .createTable("events", event => {
+      event.increments();
+      event.string("event_name", 255).notNullable();
+      event.text("event_description").notNullable();
+      event.string("event_location", 100).notNullable();
+      event.string("theme", 100).notNullable();
+      event
         .integer("planner_id")
         .unsigned()
         .references("id")
         .inTable("planners")
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
-    })
-    .createTable("events", event => {
-      event.increments();
-      event.string("event_name", 255).notNullable();
-      event.text("event_description");
-      event.string("event_location", 100).notNullable();
-      event
-        .integer("portfolio_id")
-        .unsigned()
-        .references("id")
-        .inTable("portfolio")
-        .onUpdate("CASCADE")
-        .onDelete("CASCADE");
     });
 };
 
 exports.down = function(knex) {
-  return knex.schema
-    .dropTableIfExists("events")
-    .dropTableIfExists("portfolio")
-    .dropTableIfExists("planners");
+  return knex.schema.dropTableIfExists("events").dropTableIfExists("planners");
 };
