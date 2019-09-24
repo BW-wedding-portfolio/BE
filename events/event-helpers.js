@@ -39,7 +39,6 @@ function update(changes, id) {
     .update(changes, "id")
     .where({ id })
     .then(([id]) => {
-      console.log(id);
       return getEvent(id);
     });
 }
