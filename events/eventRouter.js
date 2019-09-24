@@ -2,6 +2,31 @@ const express = require("express");
 const router = express.Router();
 const Events = require("./event-helpers");
 
+router.get("/", (req, res) => {
+  Events.all()
+    .then(events => {
+      res.status(200).json(events);
+    })
+    .catch(error => {
+      res.status(500).json({ error: "Server could not get list of events" });
+    });
+});
+
+router.get("/:id", (req, res) => {
+  const { id } = req.params;
+  Events.getById(id)
+    .then(event => {
+      if (event) {
+        res.status(200).json(event);
+      } else {
+        res.status(400).json({ error: "Can not find event with that id" });
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ error: "Server could not get list of events" });
+    });
+});
+
 router.get("/:id/events", (req, res) => {
   const { id } = req.params;
   Events.get(id)
@@ -23,7 +48,7 @@ router.post("/:id/events", (req, res) => {
   planner_id = id;
   newEvent.planner_id = planner_id;
 
-  Events.create(newEvent)retergreg
+  Events.create(newEvent)
     .then(newEvent => {
       res.status(200).json(newEvent);
     })

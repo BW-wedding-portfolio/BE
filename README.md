@@ -176,6 +176,123 @@ If there is a server or database error, the endpoint will return an HTTP respons
 
 # Planner Routes
 
+## Get All Events
+
+#### _Method Url:_ `/`
+
+##### HTTP method: [GET]
+
+## **Get list of all planners events**
+
+#### Headers
+
+| Name            |  Type  | Required |       Description        |
+| :-------------- | :----: | :------: | :----------------------: |
+| `Content-Type`  | String |   Yes    | Must be application/json |
+| `Authorization` | String |   Yes    |      JSON Web Token      |
+
+#### Response
+
+200 (OK)
+
+The endpoint will return a HTTP response with a status code and a body as below
+
+```
+ [
+    {
+        "id": 1,
+        "event_name": "Event Name",
+        "event_description": "Event Description",
+        "event_location": "TBD",
+        "theme": "TBD",
+        "planner_id": 1
+    },
+    {
+        "id": 2,
+        "event_name": "Event Name",
+        "event_description": "Event Name",
+        "event_location": "TBD",
+        "theme": "TBD",
+        "planner_id": 2
+    },
+    {
+        "id": 4,
+        "event_name": "Event Name",
+        "event_description": "Event Name",
+        "event_location": "TBD",
+        "theme": "TBD",
+        "planner_id": 3
+    },
+
+```
+
+500(SERVER ERROR)
+
+If there is a server or database error, the endpoint will return an HTTP response with a status code 500 and a body as below.
+
+```
+    {
+        error: "Server could not get events"
+    }
+
+```
+
+## Get Single Event By Id
+
+#### _Method Url:_ `/:id`
+
+##### HTTP method: [GET]
+
+## **Get Single Event**
+
+#### Headers
+
+| Name            |  Type  | Required |       Description        |
+| :-------------- | :----: | :------: | :----------------------: |
+| `Content-Type`  | String |   Yes    | Must be application/json |
+| `Authorization` | String |   Yes    |      JSON Web Token      |
+
+#### Response
+
+200 (OK)
+
+The endpoint will return a HTTP response with a status code and a body as below
+
+```
+
+    {
+        "id": 1,
+        "event_name": "Event Name",
+        "event_description": "Event Description",
+        "event_location": "TBD",
+        "theme": "TBD",
+        "planner_id": 1
+    }
+
+```
+
+400(CLIENT ERROR)
+
+The endpoint will return a HTTP response with a status code and a body as below
+
+```
+
+{
+    "error": "Can not find event with that id"
+}
+```
+
+500(SERVER ERROR)
+
+If there is a server or database error, the endpoint will return an HTTP response with a status code 500 and a body as below.
+
+```
+    {
+        error: "Server could not get events"
+    }
+
+```
+
 ## Get Events
 
 #### _Method Url:_ `/:id/events`

@@ -1,12 +1,24 @@
 const db = require("../data/db-config");
 
 module.exports = {
+  all,
+  getById,
   get,
   getEvent,
   create,
   update,
   remove
 };
+
+function all() {
+  return db("events");
+}
+
+function getById(id) {
+  return db("events")
+    .where({ id })
+    .first();
+}
 
 function get(id) {
   return db("events")
