@@ -8,7 +8,14 @@ module.exports = {
 };
 
 function find() {
-  return db("planners");
+  return db("planners").select(
+    "planners.id",
+    "planners.first_name",
+    "planners.last_name",
+    "planners.username",
+    "planners.email",
+    "planners.location"
+  );
 }
 
 function findById(id) {
