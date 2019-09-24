@@ -176,6 +176,7 @@ If there is a server or database error, the endpoint will return an HTTP respons
 
 # Planner Routes
 
+
 ## Get All Events
 
 #### _Method Url:_ `/`
@@ -292,6 +293,7 @@ If there is a server or database error, the endpoint will return an HTTP respons
     }
 
 ```
+
 
 ## Get Events
 
