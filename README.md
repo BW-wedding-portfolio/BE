@@ -356,16 +356,16 @@ If there is a server or database error, the endpoint will return an HTTP respons
 The endpoint will return a HTTP response with a status code and a body as below
 
 ```
- {
-
-        "event_id": 2,
-        "planner_id": 1,
-        "event_name": "Test Event",
-        "event_description": "An Awesome Event",
-        "theme": "TBD",
-        "event_location": "NYC"
-
-    }
+{
+    "id": 2,
+    "event_name": "New Event",
+    "event_description": "Event...",
+    "event_location": "Paris",
+    "theme": "Who knows",
+    "vendors": "idk,idk,idk",
+    "img_url": "http://whatever.jpg:8733",
+    "planner_id": 1
+}
 
 ```
 
