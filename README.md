@@ -176,10 +176,50 @@ If there is a server or database error, the endpoint will return an HTTP respons
 
 # Planner Routes
 
+## Get Planner Information... **Must be done to get ID to use throughout the site **
+
+#### _Method Url:_ `/planners/`
+
+##### HTTP Method: [GET]
+
+| Name            |  Type  | Required |       Description        |
+| :-------------- | :----: | :------: | :----------------------: |
+| `Content-Type`  | String |   Yes    | Must be application/json |
+| `Authorization` | String |   Yes    |      JSON Web Token      |
+
+#### Response
+
+200 (OK)
+
+The endpoint will return a HTTP response with a status code and a body as below
+
+```
+
+{
+    "id": 3,
+    "first_name": "Elvis",
+    "last_name": "Knapman",
+    "location": "Canada",
+    "email": "test@test2.com",
+    "username": "EKnapman100"
+}
+
+```
+
+500(SERVER ERROR)
+
+If there is a server or database error, the endpoint will return an HTTP response with a status code 500 and a body as below.
+
+```
+    {
+        error: "Server could not get Planner"
+    }
+
+```
 
 ## Get All Events
 
-#### _Method Url:_ `planner/`
+#### _Method Url:_ `events/`
 
 ##### HTTP method: [GET]
 
@@ -240,7 +280,7 @@ If there is a server or database error, the endpoint will return an HTTP respons
 
 ## Get Single Event By Id
 
-#### _Method Url:_ `planner/:id`
+#### _Method Url:_ `events/:id`
 
 ##### HTTP method: [GET]
 
@@ -294,10 +334,9 @@ If there is a server or database error, the endpoint will return an HTTP respons
 
 ```
 
-
 ## Get Events
 
-#### _Method Url:_ `planner/:id/events`
+#### _Method Url:_ `events/:id/events`
 
 ##### HTTP method: [GET]
 
@@ -354,7 +393,7 @@ If there is a server or database error, the endpoint will return an HTTP respons
 
 # Post Events
 
-#### _Method Url:_ `planner/:id/events`
+#### _Method Url:_ `events/:id/events`
 
 ##### HTTP method: [POSt]
 
@@ -402,7 +441,7 @@ If there is a server or database error, the endpoint will return an HTTP respons
 
 # Update Events
 
-#### _Method Url:_ `planner/:id/events/:eid`
+#### _Method Url:_ `events/:id/events/:eid`
 
 ##### HTTP method: [PUT]
 
@@ -450,7 +489,7 @@ If there is a server or database error, the endpoint will return an HTTP respons
 
 # Delete Events
 
-#### _Method Url:_ `planner/:id/events/:eid`
+#### _Method Url:_ `events/:id/events/:eid`
 
 ##### HTTP method: [DELETE]
 
