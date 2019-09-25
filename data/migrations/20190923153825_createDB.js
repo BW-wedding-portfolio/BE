@@ -21,6 +21,8 @@ exports.up = function(knex) {
       event.text("event_description").notNullable();
       event.string("event_location", 100).notNullable();
       event.string("theme", 100).notNullable();
+      event.string("vendors").notNullable();
+      event.string("img_url").notNullable();
       event
         .integer("planner_id")
         .unsigned()
