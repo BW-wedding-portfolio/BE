@@ -4,7 +4,7 @@
 
 # Deployed Backend
 
-[--->Deployed Site <---](http://weddingportfolio.herokuapp.com)
+[--->Deployed Site <---](https://wedding-portfolio-bw.herokuapp.com)
 
 # Technologies
 
