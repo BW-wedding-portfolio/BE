@@ -179,7 +179,7 @@ If there is a server or database error, the endpoint will return an HTTP respons
 
 ## Get All Events
 
-#### _Method Url:_ `/`
+#### _Method Url:_ `planner/`
 
 ##### HTTP method: [GET]
 
@@ -240,7 +240,7 @@ If there is a server or database error, the endpoint will return an HTTP respons
 
 ## Get Single Event By Id
 
-#### _Method Url:_ `/:id`
+#### _Method Url:_ `planner/:id`
 
 ##### HTTP method: [GET]
 
@@ -297,7 +297,7 @@ If there is a server or database error, the endpoint will return an HTTP respons
 
 ## Get Events
 
-#### _Method Url:_ `/:id/events`
+#### _Method Url:_ `planner/:id/events`
 
 ##### HTTP method: [GET]
 
@@ -354,7 +354,7 @@ If there is a server or database error, the endpoint will return an HTTP respons
 
 # Post Events
 
-#### _Method Url:_ `/:id/events`
+#### _Method Url:_ `planner/:id/events`
 
 ##### HTTP method: [POSt]
 
@@ -402,7 +402,7 @@ If there is a server or database error, the endpoint will return an HTTP respons
 
 # Update Events
 
-#### _Method Url:_ `/:id/events/:eid`
+#### _Method Url:_ `planner/:id/events/:eid`
 
 ##### HTTP method: [PUT]
 
@@ -450,7 +450,7 @@ If there is a server or database error, the endpoint will return an HTTP respons
 
 # Delete Events
 
-#### _Method Url:_ `/:id/events/:eid`
+#### _Method Url:_ `planner/:id/events/:eid`
 
 ##### HTTP method: [DELETE]
 
