@@ -19,6 +19,23 @@ module.exports = {
     }
   },
 
+  test: {
+    client: "pg",
+    connection: {
+      host: "localhost",
+      database: "wedding-data",
+      user: "postgres",
+      password: "Password123"
+    },
+    migrations: {
+      directory: "./data/migations"
+    },
+
+    seeds: {
+      directory: "./data/seeds"
+    }
+  },
+
   production: {
     client: "pg",
     useNullAsDefault: true,
