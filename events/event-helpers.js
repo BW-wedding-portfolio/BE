@@ -29,7 +29,9 @@ function get(id) {
       "events.event_name",
       "events.event_description",
       "events.theme",
-      "events.event_location"
+      "events.event_location",
+      "events.img_url",
+      "events.vendors"
     )
     .where({ "planners.id": id });
 }
