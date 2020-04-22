@@ -197,11 +197,11 @@ The endpoint will return a HTTP response with a status code and a body as below
 
 {
     "id": 3,
-    "first_name": "Elvis",
-    "last_name": "Knapman",
+    "first_name": "Hockey",
+    "last_name": "Hock",
     "location": "Canada",
     "email": "test@test2.com",
-    "username": "EKnapman100"
+    "username": "HockeyH100"
 }
 
 ```
